@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html>
+<style>
+    .main {
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 18px;
+    }
+  
+    .top-header {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      max-width: 1329px;
+      gap: 20px;
+      font-size: 22px;
+      color: #fff;
+      font-weight: 600;
+    }
+  
+    @media (max-width: 991px) {
+      .top-header {
+        max-width: 100%;
+        flex-wrap: wrap;
+      }
+    }
+  
+    .logo {
+      width: 107px;
+      max-width: 100%;
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+    }
+  
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin: auto 0;
+      padding: 0 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .nav-links {
+        flex-wrap: wrap;
+      }
+    }
+  
+    .nav-link {
+      font-family: Nunito Sans, sans-serif;
+      align-self: stretch;
+      margin: auto 0;
+    }
+  
+    .cta-nav-link {
+      font-family: Nunito Sans, sans-serif;
+      justify-content: center;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #07da07 0%, #0b430b 91.46%);
+      border: 1px solid rgba(255, 255, 255, 1);
+      font-weight: 900;
+      align-self: stretch;
+      padding: 9px 25px;
+    }
+  
+    @media (max-width: 991px) {
+      .cta-nav-link {
+        padding: 0 20px;
+      }
+    }
+  
+    .hero {
+      margin-top: 29px;
+      width: 100%;
+      max-width: 1317px;
+    }
+  
+    @media (max-width: 991px) {
+      .hero {
+        max-width: 100%;
+      }
+    }
+  
+    .hero-content {
+      display: flex;
+      gap: 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .hero-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    }
+  
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 50%;
+    }
+  
+    @media (max-width: 991px) {
+      .hero-text {
+        width: 100%;
+      }
+    }
+  
+    .hero-heading {
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
+      font-size: 24px;
+      color: #fff;
+      margin: auto 0;
+      padding: 0 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .hero-heading {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+  
+    .hero-title {
+      text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+      letter-spacing: 2.16px;
+      font: 900 54px Nunito, sans-serif;
+    }
+  
+    @media (max-width: 991px) {
+      .hero-title {
+        max-width: 100%;
+        font-size: 40px;
+      }
+    }
+  
+    .hero-description {
+      font-family: Nunito Sans, sans-serif;
+      font-weight: 700;
+      margin-top: 19px;
+    }
+  
+    @media (max-width: 991px) {
+      .hero-description {
+        max-width: 100%;
+      }
+    }
+  
+    .cta-buttons {
+      display: flex;
+      margin-top: 64px;
+      gap: 20px;
+      font-weight: 800;
+      letter-spacing: 0.96px;
+    }
+  
+    @media (max-width: 991px) {
+      .cta-buttons {
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+    }
+  
+    .cta-save {
+      font-family: Nunito Sans, sans-serif;
+      justify-content: center;
+      border-radius: 10px;
+      background: linear-gradient(87deg, #07e807 2.63%, #0c310c 100.2%);
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 1);
+      flex-grow: 1;
+      width: fit-content;
+      padding: 15px 40px;
+    }
+  
+    @media (max-width: 991px) {
+      .cta-save {
+        padding: 0 20px;
+      }
+    }
+  
+    .cta-case-study {
+      font-family: Nunito Sans, sans-serif;
+      justify-content: center;
+      border-radius: 10px;
+      background: linear-gradient(90deg, #07df07 0%, #0b430b 88.85%);
+      border: 1px solid rgba(255, 255, 255, 1);
+      flex-grow: 1;
+      width: fit-content;
+      padding: 15px 40px;
+    }
+  
+    @media (max-width: 991px) {
+      .cta-case-study {
+        padding: 0 20px;
+      }
+    }
+  
+    .hero-image {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 50%;
+      margin-left: 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .hero-image {
+        width: 100%;
+      }
+    }
+  
+    .hero-img {
+      aspect-ratio: 0.93;
+      object-fit: contain;
+      object-position: center;
+      width: 100%;
+      flex-grow: 1;
+    }
+  
+    @media (max-width: 991px) {
+      .hero-img {
+        max-width: 100%;
+      }
+    }
+  
+    .why-travel {
+      color: #49b649;
+      text-align: right;
+      margin-top: 123px;
+      font: italic 900 54px Nunito, sans-serif;
+    }
+  
+    @media (max-width: 991px) {
+      .why-travel {
+        max-width: 100%;
+        margin-top: 40px;
+        font-size: 40px;
+      }
+    }
+  
+    .why-description {
+      color: #fff;
+      text-align: center;
+      margin-top: 28px;
+      width: 1128px;
+      font: 600 24px Nunito Sans, sans-serif;
+    }
+  
+    @media (max-width: 991px) {
+      .why-description {
+        max-width: 100%;
+      }
+    }
+  
+    .features {
+      margin-top: 59px;
+      width: 1025px;
+      max-width: 100%;
+      padding: 0 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .features {
+        margin-top: 40px;
+      }
+    }
+  
+    .feature-items {
+      display: flex;
+      gap: 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .feature-items {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    }
+  
+    .feature-item {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 33%;
+    }
+  
+    @media (max-width: 991px) {
+      .feature-item {
+        width: 100%;
+      }
+    }
+  
+    .feature-save {
+      display: flex;
+      justify-content: center;
+      flex-grow: 1;
+      flex-direction: column;
+      color: #fff;
+      font-weight: 600;
+      padding: 60px 32px;
+    }
+  
+    @media (max-width: 991px) {
+      .feature-save {
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+  
+    .feature-img {
+      aspect-ratio: 1;
+      object-fit: contain;
+      object-position: center;
+      width: 100px;
+      align-self: center;
+      max-width: 100%;
+    }
+  
+    .feature-title {
+      margin-top: 9px;
+      font: italic 36px Nunito Sans, sans-serif;
+    }
+  
+    .save-description {
+      text-align: center;
+      margin-top: 9px;
+      font: 24px Nunito Sans, sans-serif;
+    }
+  
+    .feature-rewards {
+      display: flex;
+      justify-content: center;
+      border-radius: 50px;
+      box-shadow: 0px 1px 6px 0px rgba(255, 132, 73, 0.25);
+      flex-grow: 1;
+      flex-direction: column;
+      color: #fff;
+      font-weight: 600;
+      padding: 60px 32px;
+    }
+  
+    .rewards-description {
+      text-align: center;
+      margin-top: 9px;
+      font: 24px Nunito Sans, sans-serif;
+    }
+  
+    @media (max-width: 991px) {
+      .feature-rewards {
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+  
+    .feature-travel {
+      display: flex;
+      justify-content: center;
+      border-radius: 50px;
+      box-shadow: 0px 1px 6px 0px rgba(255, 132, 73, 0.25);
+      flex-grow: 1;
+      flex-direction: column;
+      color: #fff;
+      font-weight: 600;
+      padding: 60px 34px;
+    }
+  
+    @media (max-width: 991px) {
+      .feature-travel {
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+  
+    .feature-title {
+      margin-top: 9px;
+      font: italic 36px Nunito Sans, sans-serif;
+    }
+  
+    .travel-description {
+      text-align: center;
+      margin-top: 9px;
+      font: 24px Nunito Sans, sans-serif;
+    }
+  
+    .information {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      align-self: stretch;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      padding: 80px 60px;
+      min-height: 859px;
+      margin-top: 84px;
+      width: 100%;
+    }
+  
+    @media (max-width: 991px) {
+      .information {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+  
+    .info-background {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  
+    .info-content {
+      position: relative;
+      display: flex;
+      width: 100%;
+      max-width: 1314px;
+      gap: 20px;
+      margin: 112px 0 31px;
+    }
+  
+    @media (max-width: 991px) {
+      .info-content {
+        max-width: 100%;
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+    }
+  
+    .info-title {
+      align-self: end;
+      display: flex;
+      flex-direction: column;
+      margin-top: 199px;
+      font-size: 54px;
+      font-weight: 800;
+    }
+  
+    @media (max-width: 991px) {
+      .info-title {
+        max-width: 100%;
+        margin-top: 40px;
+        font-size: 40px;
+      }
+    }
+  
+    .separator {
+      background-color: #49b649;
+      width: 147px;
+      height: 7px;
+    }
+  
+    .security {
+      font-family: Nunito Sans, sans-serif;
+      margin-top: 26px;
+    }
+  
+    @media (max-width: 991px) {
+      .security {
+        max-width: 100%;
+        font-size: 40px;
+      }
+    }
+  
+    .info-description {
+      font: 600 24px Nunito Sans, sans-serif;
+    }
+  
+    @media (max-width: 991px) {
+      .info-description {
+        max-width: 100%;
+      }
+    }
+  
+  
+    .facts {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      align-self: stretch;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 60px 27px;
+      min-height: 460px;
+      margin-top: 91px;
+      width: 100%;
+    }
+  
+    @media (max-width: 991px) {
+      .facts {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    }
+  
+    .facts-background {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  
+    .facts-content {
+      position: relative;
+      display: flex;
+      width: 100%;
+      max-width: 1297px;
+      flex-direction: column;
+    }
+  
+    @media (max-width: 991px) {
+      .facts-content {
+        max-width: 100%;
+      }
+    }
+  
+    .facts-list {
+      display: flex;
+      gap: 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .facts-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    }
+  
+    .fact-item {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 26%;
+    }
+  
+    @media (max-width: 991px) {
+      .fact-item {
+        width: 100%;
+      }
+    }
+  
+    .fact-title {
+      align-items: start;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      font-size: 24px;
+      color: #fff;
+      font-weight: 600;
+    }
+  
+    @media (max-width: 991px) {
+      .fact-title {
+        margin-top: 40px;
+      }
+    }
+  
+    .fact-img {
+      aspect-ratio: 0.78;
+      object-fit: contain;
+      object-position: center;
+      width: 114px;
+      max-width: 100%;
+    }
+  
+    .fact-description {
+      font-family: Nunito Sans, sans-serif;
+      align-self: stretch;
+      margin-top: 20px;
+    }
+  
+    .fact-footer-img {
+      aspect-ratio: 4.76;
+      object-fit: contain;
+      object-position: center;
+      width: 175px;
+      margin-top: 20px;
+      max-width: 100%;
+    }
+  
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 18%;
+      margin-left: 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .footer-links {
+        width: 100%;
+      }
+    }
+  
+    .footer-link-container {
+      display: flex;
+      flex-direction: column;
+      margin-top: 55px;
+      font-size: 24px;
+      color: #fff;
+      font-weight: 400;
+    }
+  
+    @media (max-width: 991px) {
+      .footer-link-container {
+        margin-top: 40px;
+      }
+    }
+  
+    .footer-link {
+      color: #49b649;
+      text-align: center;
+      font: 800 28px Nunito Sans, sans-serif;
+    }
+  
+    .footer-link-sub {
+      text-align: center;
+      font-family: Nunito Sans, sans-serif;
+      margin-top: 20px;
+    }
+  
+    .contact {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 17%;
+      margin-left: 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .contact {
+        width: 100%;
+      }
+    }
+  
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-self: stretch;
+      font-size: 24px;
+      color: #fff;
+      font-weight: 400;
+      text-align: center;
+      margin: auto 0;
+    }
+  
+    @media (max-width: 991px) {
+      .contact-info {
+        margin-top: 40px;
+      }
+    }
+  
+    .contact-title {
+      color: #49b649;
+      font: 800 28px Nunito Sans, sans-serif;
+    }
+  
+    .contact-address,
+    .contact-phone,
+    .contact-email {
+      font-family: Nunito Sans, sans-serif;
+      margin-top: 20px;
+    }
+  
+    .newsletter-wrapper {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 39%;
+      margin-left: 20px;
+    }
+  
+    @media (max-width: 991px) {
+      .newsletter-wrapper {
+        width: 100%;
+      }
+    }
+  
+    .newsletter {
+      display: flex;
+      justify-content: center;
+      margin-top: 57px;
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    @media (max-width: 991px) {
+      .newsletter {
+        margin-top: 40px;
+      }
+    }
+  
+    .newsletter-title {
+      color: #49b649;
+      align-self: center;
+      font: 900 28px/30px Nunito, sans-serif;
+    }
+  
+    .newsletter-subscribe {
+      display: flex;
+      border-radius: 8px;
+      background-color: #fff;
+      margin-top: 24px;
+      gap: 20px;
+      font-size: 18px;
+      padding: 11px 8px 11px 31px;
+    }
+  
+    @media (max-width: 991px) {
+      .newsletter-subscribe {
+        padding-left: 20px;
+      }
+    }
+  
+    .email-input {
+      color: #9d9d9d;
+      font-family: Nunito Sans, sans-serif;
+      font-weight: 400;
+      flex-grow: 1;
+      margin: auto 0;
+    }
+  
+    .subscribe-button {
+      font-family: Nunito Sans, sans-serif;
+      border-radius: 8px;
+      background-color: #49b649;
+      color: #fff;
+      font-weight: 700;
+      white-space: nowrap;
+      justify-content: center;
+      padding: 12px 17px;
+    }
+  
+    @media (max-width: 991px) {
+      .subscribe-button {
+        white-space: initial;
+      }
+    }
+  
+    .copyright {
+      color: #fff;
+      text-align: center;
+      align-self: center;
+      margin-top: 77px;
+      font: 700 20px Nunito Sans, sans-serif;
+    }
+  
+    @media (max-width: 991px) {
+      .copyright {
+        margin-top: 40px;
+      }
+    }
+  
+    .highlight {
+      font-family: Playfair Display, -apple-system, Roboto, Helvetica, sans-serif;
+      color: rgba(73, 182, 73, 1);
+    }
+  
+    .bold {
+      font-family: Nunito Sans, -apple-system, Roboto, Helvetica, sans-serif;
+      font-weight: 900;
+      padding: 9px 25px;
+    }
+  </style>
+  
+  <main class="main">
+    <header class="top-header">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/281addce56a24011970e8ef0dc33283fc3b9d905fafdd719fdefac0e38a13691?apiKey=fa4d90187d5a43a2a3864f74eaeae5a3&" class="logo" alt="Company Logo"/>
+      <nav class="nav-links">
+        <div class="nav-link">Home</div>
+        <div class="nav-link">Save</div>
+        <div class="nav-link">Travel</div>
+        <div class="nav-link">Experience</div>
+        <div class="nav-link">Wallet</div>
+        <div class="cta-nav-link">Contact Us</div>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-heading">
+            <div class="hero-title">
+              <span class="highlight">SAVING</span>
+              <span class="bold">YOUR MONEY FOR TRAVEL THROUGH TRAVEL FUND</span>
+            </div>
+            <p class="hero-description">
+              Save your money for travel securely and explore the whole world with trasave, we provide you the best travel services.
+            </p>
+            <div class="cta-buttons">
+              <div class="cta-save">Save now</div>
+              <div class="cta-case-study">UI/UX Case Study</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9e4654bbf4f3f6b6d0cb9f62f697807de738a8eb516fa08b6d3768beece09eef?apiKey=fa4d90187d5a43a2a3864f74eaeae5a3&" class="hero-img" alt="Hero Image"/>
+        </div>
+      </div>
+    </section>
+    <section class="why-section">
+      <h2 class="why-travel">Why travel with us?</h2>
+      <p class="why-description">
+        Ambitious about your next adventure but sick of saving money? End up sneaking into those savings because well. You’re bored? Lost motivation? You don’t feel the funds are growing fast enough? Saving just sucks? Trasave has introduced an epic new way to reward you for your savings for travel.
+      </p>
+    </section>
+    <section class="features">
+      <div class="feature-items">
+        <div class="feature-item">
+          <div class="feature-save">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/9b5939bb6de41b523dac0c881fe5b84b98408f513d78bf842774df0575022420?apiKey=fa4d90187d5a43a2a3864f74eaeae5a3&" class="feature-img" alt="Feature Image"/>
+            <div class="feature-title">Save <span class="highlight">money</span></div>
+            <p class="save-description">Invest in trasave securely for future</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-rewards">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5294506bb98354eaa6c03a8fd33788c2268ad616c19c2e4a740633c96552d101?apiKey=fa4d90187d5a43a2a3864f74eaeae5a3&" class="feature-img" alt="Feature Rewards"/>
+            <div class="feature-title">Earn <span class="highlight">rewards</span></div>
+            <p class="rewards-description">Earn rewards and track your money</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-travel">
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/5863bccd23ca5abc09456ea8fd2c81b750b24c28d3b74a7c0fab3093529650a2?apiKey=fa4d90187d5a43a2a3864f74eaeae5a3&" class="feature-img" alt="Feature Travel"/>
+            <div class="feature-title"><span class="highlight">Travel</span> Global</div>
+            <p class="travel-description">Use this money for your traveling</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="information">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/39b455e435dc986e7c7070c865c5064d7e6d46619095ee31cc75b4298de8f9e8?apiKey=fa4d90187d5a43a2a3864f74eaeae5a3&" class="info-background" alt="Information Background"/>
+      <div class="info-content">
+        <div class="info-title">
+          <div class="separator"></div>
+          <p class="security">Save your travel money in Trasave and get top grade security with us</p>
+        </div>
+        <p class="info-description">
+          There are so many benefits of travelling with Trasave. Not only do we provide you with an awesome digital travel solution, an awesome travel app, but we also make it super easy and fun for you to store, save and move your travel money. <br><br>
+          As well as saving money, the TRASAVE travel fund is a good way to track your travel money. Tracking Expenses is important when travelling as you don’t want to be stuck in the middle of your journey budgeting your travel. We created the travel fund so you can store all your travel money and then track your money from your travel fund expense tracker.
+        </p>
+      </div>
+    </section>  
+    <footer class="facts">
+      <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a5c7dfe8d037eb99d1f0404b7955f62c4001b642ecfd47bf6d1d55347098cee1?apiKey=fa4d90187d5a43a2a3864f74eaeae5a3&" class="facts-background" alt="Facts Background"/>
+      <div class="facts-content">
+        <div class="facts-list">
+          <div class="fact-item">
+            <div class="fact-title">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c6a15cdfb3a377b296feec77df35a951bd5095489dbdd9622e6d32e7cb35d51c?apiKey=fa4d90187d5a43a2a3864f74eaeae5a3&" class="fact-img" alt="Fact Image"/>
+              <p class="fact-description">TRASAVE travel fund is a good way to track your travel money.</p>
+            </div>
+            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb81d73a479e9007611361a731883f27fe701914fd2458787f2bc68d32b0a7be?apiKey=fa4d90187d5a43a2a3864f74eaeae5a3&" class="fact-footer-img" alt="Fact Footer Image"/>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-link-container">
+            <div class="footer-link">About</div>
+            <p class="footer-link-sub">Technical Info</p>
+            <p class="footer-link-sub">Other Products</p>
+          </div>
+        </div>
+        <div class="contact">
+          <div class="contact-info">
+            <h4 class="contact-title">Contact Us</h4>
+            <p class="contact-address">Bengaluru, India</p>
+            <p class="contact-phone">80030 10108</p>
+            <p class="contact-email">hr@curlistic.com</p>
+          </div>
+        </div>
+        <aside class="newsletter-wrapper">
+          <div class="newsletter">
+            <p class="newsletter-title">
+              Subscribe <span class="highlight">Newsletter</span>
+            </p>
+            <form class="newsletter-subscribe">
+              <label for="emailInput" class="visually-hidden">Enter your email</label>
+              <input type="email" id="emailInput" class="email-input" placeholder="Enter your email" aria-label="Enter your email" />
+              <button type="submit" class="subscribe-button">Subscribe</button>
+            </form>
+          </div>
+        </aside>
+      </div>
+      <p class="copyright">Copyright 2022 Curlistic. All rights reserved.</p>
+    </footer>
+  </main>
+  </html>
